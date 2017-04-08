@@ -1,10 +1,11 @@
+//Modules:
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module'
 
-
+//Components:
 import { AppComponent } from './app.component';
 import { ManaHeaderComponent } from './layout/mana-header/mana-header.component';
 import { ManaNavComponent } from './layout/mana-nav/mana-nav.component';
@@ -15,6 +16,8 @@ import { ManaGalleryComponent } from './views/mana-gallery/mana-gallery.componen
 import { ManaCreateComponent } from './views/mana-create/mana-create.component';
 import { ManaLoginComponent } from './views/mana-login/mana-login.component';
 import { ManaRegisterComponent } from './views/mana-register/mana-register.component';
+
+
 
 @NgModule({
   declarations: [
