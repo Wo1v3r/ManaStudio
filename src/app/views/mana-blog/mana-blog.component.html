@@ -1,6 +1,7 @@
 <h1>This is the Blog Page</h1>
-<p>Dolore tofu voluptate  tbh biodiesel.
-    Crucifix kombucha pabst, cillum
-     gluten-free heirloom dolore delectus 
-     salvia chambray knausgaard VHS jianbing.  
-</p>
+<div *ngFor="let post of posts">
+    <h2>{{post.title}}</h2>
+    <span>{{post.author}}</span>
+    <p>{{post.description}}</p>
+    <p>{{post.content}}</p>
+</div>

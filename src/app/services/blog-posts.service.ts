@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Post } from '../shared/post';
+import { POSTS } from '../shared/mock-posts';
 
 
 
@@ -7,5 +9,8 @@ export class BlogPostsService {
 
   constructor() { }
 
-  getPosts():void{};
+  getPosts():Promise<Post[]>{
+    //TODO : This is temp for the MOCK data
+    return Promise.resolve(POSTS);
+  }
 }
