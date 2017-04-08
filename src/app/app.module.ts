@@ -5,6 +5,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module'
 
+//Relevant to material:
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from '@angular/material';
+import 'hammerjs';
+
 //Components:
 import { AppComponent } from './app.component';
 import { ManaHeaderComponent } from './layout/mana-header/mana-header.component';
@@ -34,7 +39,9 @@ import { ManaRegisterComponent } from './views/mana-register/mana-register.compo
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
+    MaterialModule,
     HttpModule,
     AppRoutingModule
   ],
