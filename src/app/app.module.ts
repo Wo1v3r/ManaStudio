@@ -8,6 +8,8 @@ import { AppRoutingModule } from './app-routing.module'
 //Relevant to material:
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@angular/material';
+import { MdGridListModule } from '@angular/material';
+
 import 'hammerjs';
 
 //Components:
@@ -36,12 +38,14 @@ import { ManaRegisterComponent } from './views/mana-register/mana-register.compo
     ManaCreateComponent,
     ManaLoginComponent,
     ManaRegisterComponent
+    
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     MaterialModule,
+    MdGridListModule,
     HttpModule,
     AppRoutingModule
   ],

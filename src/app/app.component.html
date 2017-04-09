@@ -1,4 +1,7 @@
-<mana-header></mana-header>
-<mana-nav></mana-nav>
-<router-outlet></router-outlet>
-<mana-footer></mana-footer>
+
+<md-grid-list cols="1" rowHeight='500'>
+    <md-grid-tile-header><mana-header></mana-header></md-grid-tile-header>
+    <md-grid-tile><mana-nav></mana-nav></md-grid-tile>
+    <md-grid-tile><router-outlet></router-outlet></md-grid-tile>
+    <md-grid-tile><mana-footer></mana-footer></md-grid-tile>
+</md-grid-list>
