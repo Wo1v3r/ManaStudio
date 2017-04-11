@@ -1,6 +1,37 @@
-<h1>This is the Create Page</h1>
-<p>Dolore tofu voluptate  tbh biodiesel.
-    Crucifix kombucha pabst, cillum
-     gluten-free heirloom dolore delectus 
-     salvia chambray knausgaard VHS jianbing.  
-</p>
+<div fxLayout="row" fxLayoutAlign="center">
+    <md-card fxFlex="30%">
+        <md-card-header>
+            <md-card-title><h2>Your Skills</h2></md-card-title>
+        </md-card-header>
+        <md-card-content>content</md-card-content>
+        <md-card-actions>
+            <button md-button>Add Skill</button>
+        </md-card-actions>
+    </md-card>
+
+    <md-card fxFlex="30%">
+        <md-card-title><h2 *ngIf="avatar.name && avatar.type">
+    Your name is {{avatar.name}} and you're a {{avatar.type}}
+    </h2></md-card-title>
+        <md-card-content>
+            <md-input-container>
+                <input mdInput placeholder="Name" [(ngModel)]= "avatar.name" >
+            </md-input-container>
+            <md-radio-group name="types" fxLayout="column" [(ngModel)]="avatar.type">
+                <md-radio-button value="warrior">Warrior</md-radio-button>
+                <md-radio-button value="wizard">Wizard</md-radio-button>
+                <md-radio-button value="monk">Monk</md-radio-button>
+            </md-radio-group>
+        </md-card-content>
+    </md-card>
+
+    <md-card fxFlex="30%">
+        <md-card-header>
+            <md-card-title><h2>Inventory</h2></md-card-title>
+        </md-card-header>
+        <md-card-content>Your items</md-card-content>
+        <md-card-actions>
+            <button md-button>Buy items</button>
+        </md-card-actions>
+    </md-card>
+</div>
