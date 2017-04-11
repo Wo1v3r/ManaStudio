@@ -11,12 +11,12 @@ import { ManaRegisterComponent} from './views/mana-register/mana-register.compon
 
 
 const appRoutes: Routes = [
-  {path: 'about' , component: ManaAboutComponent},
-  {path: 'blog' , component: ManaBlogComponent},
-  {path: 'create' , component: ManaCreateComponent},
-  {path: 'gallery' , component: ManaGalleryComponent},
-  {path: 'login' , component: ManaLoginComponent},
-  {path: 'register' , component: ManaRegisterComponent},
+  {path: 'About' , component: ManaAboutComponent},
+  {path: 'Blog' , component: ManaBlogComponent},
+  {path: 'Create' , component: ManaCreateComponent},
+  {path: 'Gallery' , component: ManaGalleryComponent},
+  {path: 'Login' , component: ManaLoginComponent},
+  {path: 'Register' , component: ManaRegisterComponent},
 
   //Need to change url on address bar accordingly
   {path: '', component: ManaCreateComponent},//TODO Fix this

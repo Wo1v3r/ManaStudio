@@ -1,5 +1,11 @@
-
-    <a md-button routerLink="create">Create</a>
-    <a md-button routerLink="gallery">Gallery</a>
-    <a md-button routerLink="blog">Blog</a>
-    <a md-button routerLink="about">About</a>
+<div fxLayout='row' fxLayoutAlign="center">
+    <nav id="nav" md-tab-nav-bar>
+    <a md-tab-link
+        *ngFor="let link of navLinks"
+        [routerLink]="link"
+        routerLinkActive #rla="routerLinkActive"
+        [active]="rla.isActive">
+        {{link}}
+    </a>
+    </nav>
+</div>
