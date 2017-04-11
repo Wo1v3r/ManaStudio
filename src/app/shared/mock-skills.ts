@@ -2,23 +2,23 @@ import { Skill } from "./skill";
 
 export const SKILLS = [
     {
-        id: 1,
+        id: 0,
         name: "JavaScript",
-        img: ""
+        image: "javascript.png"
+    },
+        {
+        id: 1,
+        name: "Angular",
+        image: "angular.png"
     },
         {
         id: 2,
-        name: "Angular",
-        img: ""
+        name: "MatLab",
+        image: "matlab.gif"
     },
         {
         id: 3,
-        name: "MatLab",
-        img: ""
-    },
-        {
-        id: 4,
         name: "Design",
-        img: ""
+        image: "dribbble.png"
     },
 ]

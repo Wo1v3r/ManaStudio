@@ -1,21 +1,57 @@
-<div fxLayout="row" fxLayoutAlign="center">
-    <md-card fxFlex="30%">
+<div fxLayout="row" fxLayoutAlign="space-around">
+    <md-card>
         <md-card-header>
-            <md-card-title><h2>Your Skills</h2></md-card-title>
+            <md-card-title>
+                <h2>Your Skills</h2>
+            </md-card-title>
         </md-card-header>
-        <md-card-content>content</md-card-content>
+        <md-card-content>
+            <md-list>
+                <md-list-item *ngFor="let skill of avatar.skills">
+                    <img md-list-avatar src="../../assets/img/skills/{{skill.image}}">
+                    <label>{{skill.name}}</label>
+                </md-list-item>
+            </md-list>
+
+        </md-card-content>
+
+        <md-card-content>
+
+
+            <md-toolbar fxFlex>
+                <md-toolbar-row>
+                    <md-select  placeholder="Skill" name="skill" [(ngModel)]="selectedSkill">
+                       <md-option *ngFor="let skill of skills" [value]="skill">
+                           {{skill.name}}
+                       </md-option>
+                    </md-select>
+                </md-toolbar-row>
+
+            <md-toolbar-row>
+                <h4>Proficiency</h4>
+                <md-slider [(ngModel)]="currentProficiency"></md-slider>
+            </md-toolbar-row>
+            </md-toolbar>
+            <md-toolbar-row>
+            <button md-button (click)="addSkill()">Add Skill</button>
+            </md-toolbar-row>
+
+        </md-card-content>
         <md-card-actions>
-            <button md-button>Add Skill</button>
+
+
         </md-card-actions>
     </md-card>
 
-    <md-card fxFlex="30%">
-        <md-card-title><h2 *ngIf="avatar.name && avatar.type">
-    Your name is {{avatar.name}} and you're a {{avatar.type}}
-    </h2></md-card-title>
+    <md-card>
+        <md-card-title>
+            <h2 *ngIf="avatar.name && avatar.type">
+                Your name is {{avatar.name}} and you're a {{avatar.type}}
+            </h2>
+        </md-card-title>
         <md-card-content>
             <md-input-container>
-                <input mdInput placeholder="Name" [(ngModel)]= "avatar.name" >
+                <input mdInput placeholder="Name" [(ngModel)]="avatar.name">
             </md-input-container>
             <md-radio-group name="types" fxLayout="column" [(ngModel)]="avatar.type">
                 <md-radio-button value="warrior">Warrior</md-radio-button>
@@ -25,9 +61,12 @@
         </md-card-content>
     </md-card>
 
-    <md-card fxFlex="30%">
+    <md-card>
         <md-card-header>
-            <md-card-title><h2>Inventory</h2></md-card-title>
+            <md-card-title>
+                <h2>Inventory</h2>
+            </md-card-title>
+            <md-card-subtitle>${{money}}</md-card-subtitle>
         </md-card-header>
         <md-card-content>Your items</md-card-content>
         <md-card-actions>

@@ -27,6 +27,9 @@ import { ManaCreateComponent } from './views/mana-create/mana-create.component';
 import { ManaLoginComponent } from './views/mana-login/mana-login.component';
 import { ManaRegisterComponent } from './views/mana-register/mana-register.component';
 
+//Services
+
+import { SkillsService } from './services/skills.service';
 
 
 @NgModule({
@@ -53,7 +56,7 @@ import { ManaRegisterComponent } from './views/mana-register/mana-register.compo
     AppRoutingModule,
     MaterialModule.forRoot()
   ],
-  providers: [],
+  providers: [ SkillsService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
