@@ -19,9 +19,8 @@ export class ManaCreateComponent implements OnInit {
     proficencies:[],
     money:1000
   };
-
+  
   skills: Skill[];
-
   selectedSkill: Skill;
   currentProficiency: number;
 

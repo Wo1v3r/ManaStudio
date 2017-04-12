@@ -1,4 +1,4 @@
-import { Component,Input, Inject, ViewChild , OnInit } from '@angular/core';
+import { Component, Input, Inject, ViewChild, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { MdDialog, MdDialogRef, MdDialogConfig, MD_DIALOG_DATA } from '@angular/material';
 import { ItemsService } from '../../../services/items.service';
@@ -11,7 +11,7 @@ import { Avatar } from '../../../shared/avatar';
   templateUrl: 'shop.html',
   styleUrls: ['shop.css'],
 })
-export class Shop implements Input{
+export class Shop implements Input {
   dialogRef: MdDialogRef<ShopDialog>;
   lastCloseResult: string;
   actionsAlignment: string;
@@ -36,7 +36,7 @@ export class Shop implements Input{
     // Possible useful example for the open and closeAll events.
     // Adding a class to the body if a dialog opens and
     // removing it after all open dialogs are closed
-    
+
     dialog.afterOpen.subscribe((ref: MdDialogRef<any>) => {
       if (!doc.body.classList.contains('no-scroll')) {
         doc.body.classList.add('no-scroll');
@@ -64,36 +64,44 @@ export class Shop implements Input{
 @Component({
   selector: 'shop-dialog',
   templateUrl: 'shop-dialog.html',
-  providers: [ ItemsService ]
+  providers: [ItemsService]
 
 })
 export class ShopDialog implements OnInit {
-  items:Item[]  
-  constructor( 
+  items: Item[]
+  constructor(
     public dialogRef: MdDialogRef<ShopDialog>,
     @Inject(MD_DIALOG_DATA) public data: any,
-    private itemsService : ItemsService) { }
-  
-  ngOnInit(){
+    private itemsService: ItemsService) { }
+
+  ngOnInit() {
     this.getItems();
   }
 
-  getItems(){
+  getItems() {
     this.itemsService.getItems().then(
-      (res)=>this.items=res
+      (res) => this.items = res
     );
   }
 
-  buy(item:Item){
+  buy(item: Item) {
     //need to use the item's price instead , ATM assuming all are 100
-    if (this.data.avatar.money >= 100){
-      console.log(`Bought ${item.name}`);
-      this.data.avatar.money -= 100;
-      this.data.avatar.inventory.push(item);
-    }
-    else {
+    if (this.data.avatar.money < item.price) {
       console.log("Not enough money");
+      return;
     }
+
+    if (this.data.avatar.inventory.find(
+      (other: Item) => item.id == other.id)) {
+      console.log("You already have this item");
+      return;
+    }
+
+    console.log(`Bought ${item.name} Price: ${item.price}`);
+    this.data.avatar.money -= item.price;
+    this.data.avatar.inventory.push(item);
+
+
   }
-    ///this.dialogRef.updateSize(w,h), this.dialogRef.updatePosition(top,left,right,bottom)
+  ///this.dialogRef.updateSize(w,h), this.dialogRef.updatePosition(top,left,right,bottom)
 }
