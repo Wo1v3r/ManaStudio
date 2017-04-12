@@ -1,4 +1,13 @@
-  <p>It's Jazz!</p>
-  <p><label>How much? <input #howMuch></label></p>
-  <p> {{ data.money }} </p>
-  <button type="button" (click)="dialogRef.close(howMuch.value)">Close dialog</button>
+  <p>Welcome to the shop</p>
+  <!--<p><label>How much? <input #howMuch></label></p>-->
+  <p>You have: ${{ data.avatar.money }} </p>
+  <md-grid-list cols="3">
+    <md-grid-tile *ngFor="let item of items">
+        <img fxFlexFill src="../../../assets/img/skills/{{item.img}}">
+        <md-grid-tile-footer>
+          {{item.name}}
+          <button (click)="buy(item)"  md-mini-fab><md-icon>euro_symbol</md-icon></button>
+        </md-grid-tile-footer>
+    </md-grid-tile>
+  </md-grid-list>
+  <!--<button type="button" (click)="dialogRef.close(howMuch.value)">Close dialog</button>-->

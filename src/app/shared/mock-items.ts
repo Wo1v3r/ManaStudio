@@ -19,6 +19,6 @@ export const ITEMS:Item[] = [
     id: 3,
     name: "MatLab Armor",
     description: "matlabmatlab",
-    img: "matlab.png",
+    img: "matlab.gif",
     },
 ]

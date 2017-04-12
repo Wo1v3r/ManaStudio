@@ -11,7 +11,8 @@ export const AVATARS: Avatar[] = [
     inventory: null,
     type: "wizard",
     skills: [],
-    proficencies:[]
+    proficencies:[],
+    money: 1200
   },
   {
     name: "Okami",
@@ -19,7 +20,8 @@ export const AVATARS: Avatar[] = [
     inventory: null,
     type: "monk",
     skills: [],
-    proficencies:[]
+    proficencies:[],
+    money:600
   }
   ,
   {
@@ -28,7 +30,8 @@ export const AVATARS: Avatar[] = [
     inventory: null,
     type: "warrior",
     skills: [],
-    proficencies:[]
+    proficencies:[],
+    money:750
   }
   ,
   {
@@ -37,6 +40,7 @@ export const AVATARS: Avatar[] = [
     inventory: null,
     type: "warrior",
     skills: [],
-    proficencies:[]
+    proficencies:[] ,
+    money:500
   }
 ]

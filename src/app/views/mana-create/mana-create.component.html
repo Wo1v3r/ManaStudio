@@ -69,25 +69,17 @@
             <md-card-title>
                 <h2>Inventory</h2>
             </md-card-title>
-            <md-card-subtitle>${{money}}</md-card-subtitle>
+            <md-card-subtitle>${{avatar.money}}</md-card-subtitle>
         </md-card-header>
         <md-card-content>
         <h2>Your items</h2>
         <md-grid-list cols="3">
-            <md-grid-tile><img src="../../assets/img/skills/angular.png" fxFlexFill></md-grid-tile>
-            <md-grid-tile><img src="../../assets/img/skills/angular.png" fxFlexFill></md-grid-tile>
-            <md-grid-tile><img src="../../assets/img/skills/angular.png" fxFlexFill></md-grid-tile>
-            <md-grid-tile><img src="../../assets/img/skills/angular.png" fxFlexFill></md-grid-tile>
-            <md-grid-tile><img src="../../assets/img/skills/angular.png" fxFlexFill></md-grid-tile>
-            <md-grid-tile><img src="../../assets/img/skills/angular.png" fxFlexFill></md-grid-tile>
-            <md-grid-tile><img src="../../assets/img/skills/angular.png" fxFlexFill></md-grid-tile>
-            <md-grid-tile><img src="../../assets/img/skills/angular.png" fxFlexFill></md-grid-tile>
-            <md-grid-tile><img src="../../assets/img/skills/angular.png" fxFlexFill></md-grid-tile>
+            <md-grid-tile *ngFor="let item of avatar.inventory"><img src="../../assets/img/skills/{{item.img}}" fxFlexFill></md-grid-tile>
         </md-grid-list>
         
         </md-card-content>
         <md-card-actions>
-            <shop></shop>
+            <shop [avatar]="avatar"></shop>
         </md-card-actions>
     </md-card>
 </div>

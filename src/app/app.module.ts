@@ -30,7 +30,7 @@ import { ManaRegisterComponent } from './views/mana-register/mana-register.compo
 
 ///TEST DIALOG DEMO
 import { MdDialogModule } from '@angular/material'
-import {JazzDialog, DialogDemo} from './views/mana-create/shop/shop';
+import {ShopDialog, Shop } from './views/mana-create/shop/shop';
 
 //Services
 
@@ -49,8 +49,8 @@ import { SkillsService } from './services/skills.service';
     ManaLoginComponent,
     ManaRegisterComponent,
     //For dialog
-    DialogDemo,
-    JazzDialog
+    Shop,
+    ShopDialog
   ],
   imports: [
     BrowserModule,
@@ -65,7 +65,7 @@ import { SkillsService } from './services/skills.service';
   providers: [ SkillsService ],
   bootstrap: [ AppComponent ],
   entryComponents: [
-     JazzDialog
+     ShopDialog
     ] 
 })
 export class AppModule { }

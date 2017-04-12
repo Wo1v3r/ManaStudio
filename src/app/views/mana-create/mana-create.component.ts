@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Avatar } from '../../shared/avatar';
 import { Skill } from '../../shared/skill';
 import { SkillsService } from '../../services/skills.service'
-import { DialogDemo } from './shop/shop';
+import { Shop } from './shop/shop';
 
 @Component({
   selector: 'app-mana-create',
@@ -13,17 +13,17 @@ export class ManaCreateComponent implements OnInit {
   avatar: Avatar = {
     name: "",
     id: 1,
-    inventory: null,
+    inventory: [],
     type: "",
     skills: [],
-    proficencies:[]
+    proficencies:[],
+    money:1000
   };
 
   skills: Skill[];
 
   selectedSkill: Skill;
   currentProficiency: number;
-  money: number = 1000;
 
   constructor(private skillsService: SkillsService) { }
 

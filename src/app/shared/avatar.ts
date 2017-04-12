@@ -8,4 +8,5 @@ export class Avatar{
     type: string;
     skills: Skill[];
     proficencies:number[];
+    money:number;
 }
