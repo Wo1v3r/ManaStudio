@@ -30,6 +30,7 @@ import { ManaRegisterComponent } from './views/mana-register/mana-register.compo
 //Services
 
 import { SkillsService } from './services/skills.service';
+import { ManaShopComponent } from './views/mana-create/mana-shop/mana-shop.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { SkillsService } from './services/skills.service';
     ManaGalleryComponent,
     ManaCreateComponent,
     ManaLoginComponent,
-    ManaRegisterComponent
+    ManaRegisterComponent,
+    ManaShopComponent
     
   ],
   imports: [

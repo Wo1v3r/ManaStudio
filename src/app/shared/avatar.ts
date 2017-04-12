@@ -6,6 +6,6 @@ export class Avatar{
     name: string;
     inventory: Item[];
     type: string;
-    skills: Skill[]
-
+    skills: Skill[];
+    proficencies:number[];
 }
