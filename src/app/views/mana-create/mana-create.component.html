@@ -51,7 +51,7 @@
         </md-card-title>
         <md-card-content>
             <md-input-container>
-                <input mdInput placeholder="Name" [(ngModel)]="avatar.name">
+                <input mdInput  placeholder="Name" [(ngModel)]="avatar.name">
             </md-input-container>
             <md-radio-group name="types"  [(ngModel)]="avatar.type">
                 <md-radio-button value="warrior">Warrior</md-radio-button>
@@ -87,7 +87,7 @@
         
         </md-card-content>
         <md-card-actions>
-            <button md-button (click)="openShop()">Buy items</button>
+            <shop></shop>
         </md-card-actions>
     </md-card>
 </div>

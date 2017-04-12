@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Avatar } from '../../shared/avatar';
 import { Skill } from '../../shared/skill';
 import { SkillsService } from '../../services/skills.service'
-import { ManaShopComponent } from './mana-shop/mana-shop.component';
+import { DialogDemo } from './shop/shop';
+
 @Component({
   selector: 'app-mana-create',
   templateUrl: './mana-create.component.html',

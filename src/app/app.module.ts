@@ -27,11 +27,14 @@ import { ManaCreateComponent } from './views/mana-create/mana-create.component';
 import { ManaLoginComponent } from './views/mana-login/mana-login.component';
 import { ManaRegisterComponent } from './views/mana-register/mana-register.component';
 
+
+///TEST DIALOG DEMO
+import { MdDialogModule } from '@angular/material'
+import {JazzDialog, DialogDemo} from './views/mana-create/shop/shop';
+
 //Services
 
 import { SkillsService } from './services/skills.service';
-import { ManaShopComponent } from './views/mana-create/mana-shop/mana-shop.component';
-
 
 @NgModule({
   declarations: [
@@ -45,8 +48,9 @@ import { ManaShopComponent } from './views/mana-create/mana-shop/mana-shop.compo
     ManaCreateComponent,
     ManaLoginComponent,
     ManaRegisterComponent,
-    ManaShopComponent
-    
+    //For dialog
+    DialogDemo,
+    JazzDialog
   ],
   imports: [
     BrowserModule,
@@ -59,6 +63,9 @@ import { ManaShopComponent } from './views/mana-create/mana-shop/mana-shop.compo
     MaterialModule.forRoot()
   ],
   providers: [ SkillsService ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [ AppComponent ],
+  entryComponents: [
+     JazzDialog
+    ] 
 })
 export class AppModule { }
