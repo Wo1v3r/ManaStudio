@@ -35,6 +35,7 @@ import {ShopDialog, Shop } from './views/mana-create/shop/shop';
 
 import { SkillsService } from './services/skills.service';
 import { NotFoundComponent } from './views/not-found/not-found.component';
+import { AvatarsService } from './services/avatars.service';
 
 //Relevant to FireBase:
 import {KEY} from "./keys";
@@ -75,7 +76,8 @@ export const fireBaseConfig = {
     //For Firebase
     AngularFireModule.initializeApp(fireBaseConfig)
   ],
-  providers: [ SkillsService ],
+  providers: [ SkillsService,
+               AvatarsService ],
   bootstrap: [ AppComponent ],
   entryComponents: [
      ShopDialog

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Avatar } from '../../shared/avatar';
+import { AvatarsService } from '../../services/avatars.service';
 
 @Component({
   selector: 'app-mana-gallery',
@@ -6,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mana-gallery.component.css']
 })
 export class ManaGalleryComponent implements OnInit {
+  avatars:Avatar[];
 
-  constructor() { }
+  constructor(private avatarServices:AvatarsService) { }
 
   ngOnInit() {
+    this.getAvatars();
+  }
+
+  getAvatars(){
+    this.avatarServices.getAvatars()
+        .subscribe(
+          (avatars)=>this.avatars=avatars,
+          (error)=> console.log("Error: ",error)
+        );
   }
 
 }
