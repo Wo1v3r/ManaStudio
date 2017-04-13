@@ -1,8 +1,10 @@
-<h1>This is the Gallery Page</h1>
-<p>Dolore tofu voluptate  tbh biodiesel.
-    Crucifix kombucha pabst, cillum
-     gluten-free heirloom dolore delectus 
-     salvia chambray knausgaard VHS jianbing.  
-</p>
+<div fxLayout="column"  fxLayoutAlign="space-around">
+    <md-grid-list cols="3" fxFlex>
+        
+        <md-grid-tile *ngFor="let avatar of avatars" >
+            <avatar-detail [avatar]="avatar"></avatar-detail>
+        </md-grid-tile>
 
-<p *ngFor="let avatar of avatars"> {{avatar.name}}</p>
+    </md-grid-list>
+
+</div>

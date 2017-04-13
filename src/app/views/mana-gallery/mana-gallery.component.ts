@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Avatar } from '../../shared/avatar';
 import { AvatarsService } from '../../services/avatars.service';
+import { AvatarDetailComponent } from './avatar-detail/avatar-detail.component';
+
 
 @Component({
   selector: 'app-mana-gallery',

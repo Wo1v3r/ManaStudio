@@ -39,6 +39,7 @@ import { AvatarsService } from './services/avatars.service';
 
 //Relevant to FireBase:
 import {KEY} from "./keys";
+import { AvatarDetailComponent } from './views/mana-gallery/avatar-detail/avatar-detail.component';
 
 export const fireBaseConfig = {
   apiKey: KEY,
@@ -62,6 +63,7 @@ export const fireBaseConfig = {
     Shop,
     ShopDialog,
     NotFoundComponent,
+    AvatarDetailComponent,
 
   ],
   imports: [

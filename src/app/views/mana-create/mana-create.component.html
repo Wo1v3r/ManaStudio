@@ -7,10 +7,16 @@
         </md-card-header>
         <md-card-content>
             <md-list>
-                <md-list-item *ngFor="let skill of avatar.skills">
+                <md-list-item fxLayout="row" fxLayoutAlign="space-around" *ngFor="let skill of avatar.skills">
                     <img md-list-avatar src="../../assets/img/skills/{{skill.image}}">
-                    <label>{{skill.name}}</label>
-                    <p>      Proficiency: {{avatar.proficencies[skill.id]}}</p>
+                    <label fxFlex>{{skill.name}}</label>
+                    <!--<p> Proficiency: {{avatar.proficencies[skill.id]}}</p>-->
+                    <md-progress-spinner
+                    fxFlex
+                    fxFlexFill
+                    fxFlexAlign="end"
+                    [mode]="determinate" 
+                    [value]="avatar.proficencies[skill.id]" color="primary"></md-progress-spinner>
                     <button md-mini-fab (click)="removeSkill(skill)"><md-icon>delete</md-icon></button>
                 </md-list-item>
             </md-list>
@@ -22,20 +28,20 @@
 
             <md-toolbar fxFlex>
                 <md-toolbar-row>
-                    <md-select  placeholder="Skill" name="skill" [(ngModel)]="selectedSkill">
-                       <md-option *ngFor="let skill of skills" [value]="skill">
-                           {{skill.name}}
-                       </md-option>
+                    <md-select placeholder="Skill" name="skill" [(ngModel)]="selectedSkill">
+                        <md-option *ngFor="let skill of skills" [value]="skill">
+                            {{skill.name}}
+                        </md-option>
                     </md-select>
                 </md-toolbar-row>
 
-            <md-toolbar-row>
-                <h4>Proficiency</h4>
-                <md-slider [(ngModel)]="currentProficiency"></md-slider>
-            </md-toolbar-row>
+                <md-toolbar-row>
+                    <h4>Proficiency</h4>
+                    <md-slider [(ngModel)]="currentProficiency"></md-slider>
+                </md-toolbar-row>
             </md-toolbar>
             <md-toolbar-row>
-            <button md-button (click)="addSkill()">Add Skill</button>
+                <button md-button (click)="addSkill()">Add Skill</button>
             </md-toolbar-row>
 
         </md-card-content>
@@ -51,17 +57,20 @@
         </md-card-title>
         <md-card-content>
             <md-input-container>
-                <input mdInput  placeholder="Name" [(ngModel)]="avatar.name">
+                <input mdInput placeholder="Name" [(ngModel)]="avatar.name">
             </md-input-container>
-            <md-radio-group name="types"  [(ngModel)]="avatar.type">
+            <md-radio-group name="types" [(ngModel)]="avatar.type">
                 <md-radio-button value="warrior">Warrior</md-radio-button>
                 <md-radio-button value="wizard">Wizard</md-radio-button>
                 <md-radio-button value="monk">Monk</md-radio-button>
             </md-radio-group>
             <h2 *ngIf="avatar.name && avatar.type">
-            Your name is {{avatar.name}} and you're a {{avatar.type}}
+                Your name is {{avatar.name}} and you're a {{avatar.type}}
             </h2>
         </md-card-content>
+        <md-card-actions>
+            <button md-raised-button (click)="addAvatar()">Create</button>
+        </md-card-actions>
     </md-card>
 
     <md-card>
@@ -72,11 +81,11 @@
             <md-card-subtitle>${{avatar.money}}</md-card-subtitle>
         </md-card-header>
         <md-card-content>
-        <h2>Your items</h2>
-        <md-grid-list cols="3">
-            <md-grid-tile *ngFor="let item of avatar.inventory"><img src="../../assets/img/skills/{{item.img}}" fxFlexFill></md-grid-tile>
-        </md-grid-list>
-        
+            <h2>Your items</h2>
+            <md-grid-list cols="3">
+                <md-grid-tile *ngFor="let item of avatar.inventory"><img src="../../assets/img/skills/{{item.img}}" fxFlexFill></md-grid-tile>
+            </md-grid-list>
+
         </md-card-content>
         <md-card-actions>
             <shop [avatar]="avatar"></shop>

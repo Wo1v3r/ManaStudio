@@ -1,0 +1,31 @@
+<div fxFlexLayout="column">
+<md-card fxFlexFill>
+  <md-card-header>
+    <md-card-title>
+      <h1>{{avatar.name}}</h1>
+    </md-card-title>
+    <md-card-subtitle>{{avatar.type}}</md-card-subtitle>
+  </md-card-header>
+
+  <md-card-content>
+
+    <h2>Inventory</h2>
+    <md-grid-list cols="3">
+      <md-grid-tile *ngFor="let item of avatar.inventory"><img src="../../assets/img/skills/{{item.img}}" fxFlexFill></md-grid-tile>
+    </md-grid-list>
+
+    <h2>Skills</h2>
+    <md-list>
+      <md-list-item fxLayout="row" fxLayoutAlign="space-around" *ngFor="let skill of avatar.skills">
+        <img md-list-avatar src="../../assets/img/skills/{{skill.image}}">
+        <label fxFlex>{{skill.name}}</label>
+        <!--<p> Proficiency: {{avatar.proficencies[skill.id]}}</p>-->
+        <md-progress-spinner fxFlex fxFlexFill fxFlexAlign="end" [mode]="determinate" [value]="avatar.proficencies[skill.id]" color="primary"></md-progress-spinner>
+        <button md-mini-fab (click)="removeSkill(skill)"><md-icon>delete</md-icon></button>
+      </md-list-item>
+    </md-list>
+  </md-card-content>
+
+  <md-card-actions>actions</md-card-actions>
+</md-card>
+</div>

@@ -15,4 +15,8 @@ export class AvatarsService {
     return this.avatars;
   }
 
+  addAvatar(avatar:Avatar){
+    this.avatars.push(avatar);
+  }
+
 }
