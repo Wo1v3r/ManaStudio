@@ -7,12 +7,9 @@ import { Component, OnInit } from '@angular/core';
 export class ManaNavComponent implements OnInit {
 
   navLinks:string[] = [
-    "Create",
     "Gallery",
-    "Blog",
-    "About",
-    "Login",
-    "Register"
+    "Create",
+    "About"
   ]
   constructor() { }
 

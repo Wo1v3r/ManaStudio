@@ -32,7 +32,10 @@ export class ManaCreateComponent implements OnInit {
 
   getSkills(): void {
     this.skillsService.getSkills()
-      .then((skills) => this.skills = skills);
+              .subscribe(
+                (skills)=>this.skills=skills,
+                (error)=>console.log("Error: ",error)
+              );
   }
 
   addSkill(): void {

@@ -68,7 +68,7 @@ export class Shop implements Input {
 
 })
 export class ShopDialog implements OnInit {
-  items: Item[]
+  items: Item[] = [];
   constructor(
     public dialogRef: MdDialogRef<ShopDialog>,
     @Inject(MD_DIALOG_DATA) public data: any,
@@ -79,9 +79,9 @@ export class ShopDialog implements OnInit {
   }
 
   getItems() {
-    this.itemsService.getItems().then(
-      (res) => this.items = res
-    );
+    this.itemsService.getItems()
+         .subscribe((items)=> this.items = items
+         ,(err)=>console.log("Error:",err));
   }
 
   buy(item: Item) {
@@ -96,7 +96,6 @@ export class ShopDialog implements OnInit {
       console.log("You already have this item");
       return;
     }
-
     console.log(`Bought ${item.name} Price: ${item.price}`);
     this.data.avatar.money -= item.price;
     this.data.avatar.inventory.push(item);

@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module'
+//For FireBase:
+import { AngularFireModule } from 'angularfire2';
 
 //Relevant to Flex
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -21,11 +23,8 @@ import { ManaHeaderComponent } from './layout/mana-header/mana-header.component'
 import { ManaNavComponent } from './layout/mana-nav/mana-nav.component';
 import { ManaFooterComponent } from './layout/mana-footer/mana-footer.component';
 import { ManaAboutComponent } from './views/mana-about/mana-about.component';
-import { ManaBlogComponent } from './views/mana-blog/mana-blog.component';
 import { ManaGalleryComponent } from './views/mana-gallery/mana-gallery.component';
 import { ManaCreateComponent } from './views/mana-create/mana-create.component';
-import { ManaLoginComponent } from './views/mana-login/mana-login.component';
-import { ManaRegisterComponent } from './views/mana-register/mana-register.component';
 
 
 ///TEST DIALOG DEMO
@@ -35,6 +34,19 @@ import {ShopDialog, Shop } from './views/mana-create/shop/shop';
 //Services
 
 import { SkillsService } from './services/skills.service';
+import { NotFoundComponent } from './views/not-found/not-found.component';
+
+//Relevant to FireBase:
+import {KEY} from "./keys";
+
+export const fireBaseConfig = {
+  apiKey: KEY,
+  authDomain: "hero-creator.firebaseapp.com",
+  databaseURL: "https://hero-creator.firebaseio.com",
+  projectId: "hero-creator",
+  storageBucket: "hero-creator.appspot.com",
+  messagingSenderId: "73375700738"
+};
 
 @NgModule({
   declarations: [
@@ -43,14 +55,13 @@ import { SkillsService } from './services/skills.service';
     ManaNavComponent,
     ManaFooterComponent,
     ManaAboutComponent,
-    ManaBlogComponent,
     ManaGalleryComponent,
     ManaCreateComponent,
-    ManaLoginComponent,
-    ManaRegisterComponent,
     //For dialog
     Shop,
-    ShopDialog
+    ShopDialog,
+    NotFoundComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -60,7 +71,9 @@ import { SkillsService } from './services/skills.service';
     MaterialModule,
     HttpModule,
     AppRoutingModule,
-    MaterialModule.forRoot()
+    MaterialModule.forRoot(),
+    //For Firebase
+    AngularFireModule.initializeApp(fireBaseConfig)
   ],
   providers: [ SkillsService ],
   bootstrap: [ AppComponent ],
