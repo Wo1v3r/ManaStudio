@@ -1,0 +1,12 @@
+#createButton{
+    margin-top:10%;
+}
+
+md-progress-spinner{
+   max-width: 60px;
+   max-height:60px;
+   margin-right:5px;
+}
+h1{
+    margin:5% auto 5% auto;
+}

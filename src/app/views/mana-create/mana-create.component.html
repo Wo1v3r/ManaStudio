@@ -1,79 +1,64 @@
-<div fxLayout="row" fxLayoutAlign="space-around">
+<h1 align="center"> Create your Wizard! </h1>
+
+<div fxLayout.xs="column" fxLayout.sm="row" fxLayoutAlign="space-around">
     <md-card>
         <md-card-header>
             <md-card-title>
-                <h2>Your Skills</h2>
+                <h2>Skills</h2>
             </md-card-title>
         </md-card-header>
         <md-card-content>
             <md-list>
-                <md-list-item fxLayout="row" fxLayoutAlign="space-around" *ngFor="let skill of avatar.skills">
+
+                <md-list-item fxLayout="column" fxLayoutAlign="space-between"*ngFor="let skill of avatar.skills">
                     <img md-list-avatar src="../../assets/img/skills/{{skill.image}}">
-                    <label fxFlex>{{skill.name}}</label>
-                    <!--<p> Proficiency: {{avatar.proficencies[skill.id]}}</p>-->
-                    <md-progress-spinner
-                    fxFlex
-                    fxFlexFill
-                    fxFlexAlign="end"
-                    [mode]="determinate" 
-                    [value]="avatar.proficencies[skill.id]" color="primary"></md-progress-spinner>
-                    <button md-mini-fab (click)="removeSkill(skill)"><md-icon>delete</md-icon></button>
+                    <label md-line>{{skill.name}}</label>
+                    <md-progress-spinner [mode]="determinate" [value]="avatar.proficencies[skill.id]" color="primary"></md-progress-spinner>
+                    <button class="removeButton" md-mini-fab color="warn" (click)="removeSkill(skill)"><md-icon>delete</md-icon></button>
+
                 </md-list-item>
             </md-list>
 
         </md-card-content>
 
-        <md-card-content>
-
-
-            <md-toolbar fxFlex>
-                <md-toolbar-row>
-                    <md-select placeholder="Skill" name="skill" [(ngModel)]="selectedSkill">
-                        <md-option *ngFor="let skill of skills" [value]="skill">
-                            {{skill.name}}
-                        </md-option>
-                    </md-select>
-                </md-toolbar-row>
-
-                <md-toolbar-row>
-                    <h4>Proficiency</h4>
-                    <md-slider [(ngModel)]="currentProficiency"></md-slider>
-                </md-toolbar-row>
-            </md-toolbar>
-            <md-toolbar-row>
-                <button md-button (click)="addSkill()">Add Skill</button>
-            </md-toolbar-row>
-
-        </md-card-content>
         <md-card-actions>
 
+            <md-select placeholder="Skill" name="skill" [(ngModel)]="selectedSkill">
+                <md-option *ngFor="let skill of skills" [value]="skill">
+                    {{skill.name}}
+                </md-option>
+            </md-select>
+
+            <h4>Proficiency</h4>
+            <md-slider [(ngModel)]="currentProficiency"></md-slider>
+
+            <button color="primary" md-raised-button (click)="addSkill()">Add Skill</button>
 
         </md-card-actions>
     </md-card>
 
     <md-card>
         <md-card-title>
-            <h2>Create your Hero!</h2>
+            <h3>Details</h3>
         </md-card-title>
         <md-card-content>
             <md-input-container>
                 <input mdInput placeholder="Name" [(ngModel)]="avatar.name">
             </md-input-container>
             <md-radio-group name="types" [(ngModel)]="avatar.type">
-                <md-radio-button value="warrior">Warrior</md-radio-button>
-                <md-radio-button value="wizard">Wizard</md-radio-button>
-                <md-radio-button value="monk">Monk</md-radio-button>
+                <md-radio-button value="Back-end">Back-end</md-radio-button>
+                <md-radio-button value="Front-end">Front-end</md-radio-button>
+                <md-radio-button value="Full-stack">Full-Stack</md-radio-button>
             </md-radio-group>
-            <h2 *ngIf="avatar.name && avatar.type">
-                Your name is {{avatar.name}} and you're a {{avatar.type}}
-            </h2>
+            <h4 *ngIf="avatar.name && avatar.type">
+                You're a {{avatar.type}} Wizard, {{avatar.name}}!
+            </h4>
         </md-card-content>
         <md-card-actions>
-            <button md-raised-button (click)="addAvatar()">Create</button>
         </md-card-actions>
     </md-card>
 
-    <md-card>
+    <md-card fxLayout="column" fxLayoutAlign="space-around">
         <md-card-header>
             <md-card-title>
                 <h2>Inventory</h2>
@@ -81,14 +66,22 @@
             <md-card-subtitle>${{avatar.money}}</md-card-subtitle>
         </md-card-header>
         <md-card-content>
-            <h2>Your items</h2>
             <md-grid-list cols="3">
-                <md-grid-tile *ngFor="let item of avatar.inventory"><img src="../../assets/img/skills/{{item.img}}" fxFlexFill></md-grid-tile>
+                <md-grid-tile *ngFor="let item of avatar.inventory">
+                    <span mdTooltip={{item.description}} mdTooltipPosition="above">
+                    <img src="../../assets/img/skills/{{item.img}}" fxFlexFill>
+                    </span>
+                    </md-grid-tile>
             </md-grid-list>
-
         </md-card-content>
-        <md-card-actions>
+        <md-card-actions fxFlexAlign="center">
             <shop [avatar]="avatar"></shop>
         </md-card-actions>
     </md-card>
+
+
+</div>
+
+<div fxLayout="row" fxLayoutAlign="space-around">
+    <button id="createButton" md-raised-button color="primary" (click)="addAvatar()">Create</button>
 </div>

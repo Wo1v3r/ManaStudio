@@ -53,14 +53,31 @@ export class ManaCreateComponent implements OnInit {
     this.avatar.skills = this.avatar.skills.filter((other) => other != skill);
   }
 
+  resetAvatar() {
+    this.avatar = {
+      name: "",
+      id: 1,
+      inventory: [],
+      type: "",
+      skills: [],
+      proficencies: [],
+      money: 1000
+    }
+  }
   addAvatar() {
+    console.log(this.avatar.inventory);
+
+    
     if (this.avatar.name &&
       this.avatar.id &&
-      this.avatar.type) {
+      this.avatar.type &&
+      this.avatar.inventory[0] &&
+      this.avatar.skills[0]) {
       this.avatarsServices.addAvatar(this.avatar);
+      this.resetAvatar();
     }
-    else { 
-      console.log("Avatar must have a name,id and type");
+    else {
+      console.log("Avatar must have a name,id, type");
     }
   }
 }

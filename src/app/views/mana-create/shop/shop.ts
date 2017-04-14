@@ -80,8 +80,8 @@ export class ShopDialog implements OnInit {
 
   getItems() {
     this.itemsService.getItems()
-         .subscribe((items)=> this.items = items
-         ,(err)=>console.log("Error:",err));
+      .subscribe((items) => this.items = items
+      , (err) => console.log("Error:", err));
   }
 
   buy(item: Item) {
@@ -101,6 +101,20 @@ export class ShopDialog implements OnInit {
     this.data.avatar.inventory.push(item);
 
 
+  }
+
+  hasItem(item: Item) {
+    if (this.data.avatar.inventory.find(
+      (other: Item) => item.id == other.id)) {
+      return true;
+    }
+    return false;
+  }
+
+  sell(item:Item){
+    console.log(`Sold ${item.name} Price: ${item.price}`);
+    this.data.avatar.money += item.price;
+    this.data.avatar.inventory.splice(this.data.avatar.inventory.indexOf(item),1);
   }
   ///this.dialogRef.updateSize(w,h), this.dialogRef.updatePosition(top,left,right,bottom)
 }
