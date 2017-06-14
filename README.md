@@ -2,6 +2,9 @@
 
 Basic one page web application to create 'Wizards' cards, depicting developers as wizards:
 
+##### This was made as a demo continuing Angular.io 's Tour of Heroes and attempting to use FireBase
+
+
 - Can add skills to your wizard
 - Can buy 'items' for your wizard
 - Can Create a wizard adding it to the firebase db
